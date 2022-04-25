@@ -2,27 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Genre;
 use Illuminate\Http\Request;
 
-class GenreController extends Controller
+class test extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $genres = Genre::all();
-
-        return view('genres',[
-            'genres' => $genres
-        ]);
-    }
-
-    public function show($id)
-    {
-        $genre = Genre::find($id);
-
-        return view('genre', [
-            'genre' => $genre
-        ]);
+        //
     }
 
     /**
@@ -42,6 +33,17 @@ class GenreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
         //
     }

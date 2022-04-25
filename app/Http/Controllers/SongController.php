@@ -15,4 +15,13 @@ class SongController extends Controller
             'songs' => $songs
         ]);
     }
+
+    public function show($id)
+    {
+        $song = Song::find($id);
+
+        return view('song', [
+            'song' => $song
+        ]);
+    }
 }

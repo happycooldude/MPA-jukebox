@@ -15,4 +15,13 @@ class GenreController extends Controller
             'genres' => $genres
         ]);
     }
+
+    public function show($id)
+    {
+        $genre = Genre::find($id);
+
+        return view('genre', [
+            'genre' => $genre
+        ]);
+    }
 }

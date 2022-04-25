@@ -16,4 +16,13 @@ class ArtistController extends Controller
             'artists' => $artists
         ]);
     }
+
+    public function show($id)
+    {
+        $artist = Artist::find($id);
+
+        return view('artist', [
+            'artist' => $artist
+        ]);
+    }
 }

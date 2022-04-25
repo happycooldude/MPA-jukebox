@@ -23,9 +23,15 @@ Route::get('/', function () {
 
 Route::get('genres', [GenreController::class, 'index'])->name('genres');
 
+Route::get('genre/{id}', [GenreController::class, 'show']);
+
 Route::get('songs', [SongController::class, 'index'])->name('songs');
 
+Route::get('song/{id}', [SongController::class, 'show']);
+
 Route::get('artists', [ArtistController::class, 'index'])->name('artists');
+
+Route::get('artist/{id}', [ArtistController::class, 'show']);
 
 Route::get('playlists', [PlaylistController::class, 'index'])->name('playlists');
 

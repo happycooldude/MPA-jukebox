@@ -32,7 +32,11 @@ class SongController extends Controller
      */
     public function create()
     {
-        //
+        $songs = Song::all();
+
+        return view('createsong', [
+            'songs' => $songs
+        ]);
     }
 
     /**
@@ -43,7 +47,12 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $song = Song::create([
+            'title' => $request->title,
+            'artist_id' => $request->artist,
+            'genre_id' => $request->genre
+        ]);
+        return redirect('songs');
     }
 
     /**

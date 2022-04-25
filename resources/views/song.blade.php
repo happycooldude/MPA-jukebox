@@ -12,6 +12,8 @@
                     {{$song->title}}
                     <br>
                     {{$song->artist->name}}
+                    <br>
+                    {{$song->genre->name}}
                 </div>
             </div>
         </div>

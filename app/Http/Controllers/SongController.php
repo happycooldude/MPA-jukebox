@@ -36,7 +36,7 @@ class SongController extends Controller
     {
         $songs = Song::all();
 
-        return view('createsong', [
+        return view('cruds.songcrud.createsong', [
             'songs' => $songs
         ])->with('artists', Artist::all())->with('genres', Genre::all());
     }
@@ -73,7 +73,12 @@ class SongController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('cruds.songcrud.edit', [
+            'song' => Song::find($id),
+            'artists' => Artist::all(),
+            'genres' => Genre::all()
+        ]);
+        return redirect('songs');
     }
 
     /**
@@ -85,7 +90,15 @@ class SongController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $song = Song::find($id);
+        $song->update([
+            $song->title = $request->title,
+            $song->artist_id = $request->artist_id,
+            $song->genre_id = $request->genre_id,
+            $song->save(),
+        ]);
+
+        return redirect('songs');
     }
 
     /**

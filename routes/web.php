@@ -33,6 +33,10 @@ Route::get('songs/createsong', [SongController::class, 'create']);
 
 Route::post('songs/createsong/store', [SongController::class, 'store']);
 
+Route::get('song/edit/{id}', [SongController::class, 'edit']);
+
+Route::put('song/edit/{id}/update', [SongController::class, 'update']);
+
 Route::get('artists', [ArtistController::class, 'index'])->name('artists');
 
 Route::get('artist/{id}', [ArtistController::class, 'show']);

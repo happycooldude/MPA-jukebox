@@ -17,13 +17,13 @@
                         <label for="artist_id">Artist</label>
                         <select name="artist_id">
                             @foreach ($artists as $artist)
-                                <option value="{{$artist->id}}">{{$artist->name}}</option>
+                                <option value="{{ $artist->id }}">{{ $artist->name }}</option>
                             @endforeach
                         </select><br>
                         <label for="genre_id">Genre</label>
                         <select name="genre_id">
                             @foreach ($genres as $genre)
-                                <option value="{{$genre->id}}">{{$genre->name}}</option>
+                                <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                             @endforeach
                         </select><br>
                         <button type="submit">Submit</button>

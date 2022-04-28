@@ -10,9 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     @foreach ($songs as $song)
-                    <div class="border-b">
-                        <a href="/song/{{$song->id}}">{{ $song->title }}</a> 
-                    </div>
+                        <div class="border-b">
+                            <a href="/song/{{ $song->id }}">{{ $song->title }}</a>
+                            <a href="/song/edit/{{ $song->id }}">Edit</a>
+                        </div>
 
                         <br>
                     @endforeach

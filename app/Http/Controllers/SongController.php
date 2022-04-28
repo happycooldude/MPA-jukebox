@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Song;
+use App\Models\Artist;
+use App\Models\Genre;
 
 class SongController extends Controller
 {
@@ -36,7 +38,7 @@ class SongController extends Controller
 
         return view('createsong', [
             'songs' => $songs
-        ]);
+        ])->with('artists', Artist::all())->with('genres', Genre::all());
     }
 
     /**
@@ -47,11 +49,19 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        $song = Song::create([
-            'title' => $request->title,
-            'artist_id' => $request->artist,
-            'genre_id' => $request->genre
-        ]);
+        //dd($request);
+
+        $song = new Song();
+        $song->title = $request->title;
+        $song->artist_id = $request->artist_id;
+        $song->genre_id = $request->genre_id;
+        $song->save();
+
+        // $song = Song::create([
+        //     'title' => $request->title,
+        //     'artist_id' => $request->artist_id,
+        //     'genre_id' => $request->genre_id
+        // ]);
         return redirect('songs');
     }
 

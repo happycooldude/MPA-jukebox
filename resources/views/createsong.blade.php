@@ -12,18 +12,20 @@
                     <form method="POST" action="createsong/store">
                         @method('POST')
                         @csrf
-                        <label for="">Title</label>
+                        <label for="title">Title</label>
                         <input type="text" name='title'> <br>
-                        <select name="artist">
-                            @foreach ($songs as $song)
-                                <option value="{{$song->artist->id}}">{{$song->artist->name}}</option>
+                        <label for="artist_id">Artist</label>
+                        <select name="artist_id">
+                            @foreach ($artists as $artist)
+                                <option value="{{$artist->id}}">{{$artist->name}}</option>
                             @endforeach
-                        </select>
-                        <select name="genre">
-                            @foreach ($songs as $song)
-                                <option value="{{$song->genre->id}}">{{$song->genre->name}}</option>
+                        </select><br>
+                        <label for="genre_id">Genre</label>
+                        <select name="genre_id">
+                            @foreach ($genres as $genre)
+                                <option value="{{$genre->id}}">{{$genre->name}}</option>
                             @endforeach
-                        </select>
+                        </select><br>
                         <button type="submit">Submit</button>
                     </form>
                 </div>

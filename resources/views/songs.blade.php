@@ -13,6 +13,7 @@
                         <div class="border-b">
                             <a href="/song/{{ $song->id }}">{{ $song->title }}</a>
                             <a href="/song/edit/{{ $song->id }}">Edit</a>
+                            <a href="/song/delete/{{ $song->id }}">Delete</a>
                         </div>
 
                         <br>

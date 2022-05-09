@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Song;
+use App\Models\Artist;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 
@@ -19,8 +21,10 @@ class GenreController extends Controller
     public function show($id)
     {
         $genre = Genre::find($id);
-
+        $songs = $genre->songs;
+        
         return view('genre', [
+            'songs' => $songs,
             'genre' => $genre
         ]);
     }

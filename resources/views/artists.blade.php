@@ -10,9 +10,13 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                    @foreach ($artists as $artist)
-                   <a href="/artist/{{$artist->id}}">{{ $artist->name }}</a> 
+                   <a href="/artist/{{$artist->id}}">{{ $artist->name }}</a>
+                   <a href="/artist/edit/{{ $artist->id }}">Edit</a>
+                   <a href="/artist/delete/{{ $artist->id }}">Delete</a>
                    <br>
                @endforeach
+
+               <a href="/artists/createartist">Add artist</a>
                 </div>
             </div>
         </div>

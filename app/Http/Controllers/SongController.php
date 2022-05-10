@@ -57,11 +57,6 @@ class SongController extends Controller
         $song->genre_id = $request->genre_id;
         $song->save();
 
-        // $song = Song::create([
-        //     'title' => $request->title,
-        //     'artist_id' => $request->artist_id,
-        //     'genre_id' => $request->genre_id
-        // ]);
         return redirect('songs');
     }
 
@@ -109,6 +104,9 @@ class SongController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $song = Song::find($id);
+        $song->delete();
+
+        return redirect('songs');
     }
 }

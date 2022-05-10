@@ -20,12 +20,12 @@
                         {{ __('Genres') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('songs')" :active="request()->routeIs('songs')">
-                        {{ __('Songs') }}
-                    </x-nav-link>
-
                     <x-nav-link :href="route('artists')" :active="request()->routeIs('artists')">
                         {{ __('Artists') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('songs')" :active="request()->routeIs('songs')">
+                        {{ __('Songs') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('playlists')" :active="request()->routeIs('playlists')">

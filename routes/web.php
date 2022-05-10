@@ -25,6 +25,17 @@ Route::get('genres', [GenreController::class, 'index'])->name('genres');
 
 Route::get('genre/{id}', [GenreController::class, 'show']);
 
+Route::get('genres/creategenre', [GenreController::class, 'create']);
+
+Route::post('genres/creategenre/store', [GenreController::class, 'store']);
+
+Route::get('genre/edit/{id}', [GenreController::class, 'edit']);
+
+Route::put('genre/edit/{id}/update', [GenreController::class, 'update']);
+
+Route::get('genre/delete/{id}', [GenreController::class, 'destroy']);
+
+
 Route::get('songs', [SongController::class, 'index'])->name('songs');
 
 Route::get('song/{id}', [SongController::class, 'show']);
@@ -37,9 +48,23 @@ Route::get('song/edit/{id}', [SongController::class, 'edit']);
 
 Route::put('song/edit/{id}/update', [SongController::class, 'update']);
 
+Route::get('song/delete/{id}', [SongController::class, 'destroy']);
+
+
 Route::get('artists', [ArtistController::class, 'index'])->name('artists');
 
 Route::get('artist/{id}', [ArtistController::class, 'show']);
+
+Route::get('artists/createartist', [ArtistController::class, 'create']);
+
+Route::post('artists/createartist/store', [ArtistController::class, 'store']);
+
+Route::get('artist/edit/{id}', [ArtistController::class, 'edit']);
+
+Route::put('artist/edit/{id}/update', [ArtistController::class, 'update']);
+
+Route::get('artist/delete/{id}', [ArtistController::class, 'destroy']);
+
 
 Route::get('playlists', [PlaylistController::class, 'index'])->name('playlists');
 

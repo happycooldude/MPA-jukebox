@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Genre::factory(5)->create();
-        Artist::factory(5)->create();
-        Song::factory(5)->create();
+        Genre::factory(1)->create();
+        Artist::factory(1)->create();
+        Song::factory(1)->create();
     }
 }

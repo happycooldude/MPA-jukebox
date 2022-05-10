@@ -23,7 +23,7 @@ class ArtistController extends Controller
     {
         $artist = Artist::find($id);
         $songs = $artist->songs;
-        
+
         return view('artist', [
             'songs' => $songs,
             'artist' => $artist
@@ -37,7 +37,11 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        //
+        $artists = Artist::all();
+
+        return view('cruds.artistcrud.createartist', [
+            'artists' => $artists
+        ]);
     }
 
     /**
@@ -48,7 +52,13 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+
+        $artist = new Artist();
+        $artist->name = $request->name;
+        $artist->save();
+
+        return redirect('artists');
     }
 
     /**
@@ -59,7 +69,10 @@ class ArtistController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('cruds.artistcrud.edit', [
+            'artist' => Artist::find($id),
+        ]);
+        return redirect('artists');
     }
 
     /**
@@ -71,7 +84,13 @@ class ArtistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $artist = Artist::find($id);
+        $artist->update([
+            $artist->name = $request->name,
+            $artist->save(),
+        ]);
+
+        return redirect('artists');
     }
 
     /**
@@ -82,6 +101,9 @@ class ArtistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $artist = Artist::find($id);
+        $artist->delete();
+
+        return redirect('artists');
     }
 }

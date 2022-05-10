@@ -13,7 +13,7 @@ class GenreController extends Controller
     {
         $genres = Genre::all();
 
-        return view('genres',[
+        return view('genres', [
             'genres' => $genres
         ]);
     }
@@ -22,7 +22,7 @@ class GenreController extends Controller
     {
         $genre = Genre::find($id);
         $songs = $genre->songs;
-        
+
         return view('genre', [
             'songs' => $songs,
             'genre' => $genre
@@ -36,7 +36,11 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        $genres = Genre::all();
+
+        return view('cruds.genrecrud.creategenre', [
+            'genres' => $genres
+        ]);
     }
 
     /**
@@ -47,7 +51,13 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+
+        $genre = new Genre();
+        $genre->name = $request->name;
+        $genre->save();
+
+        return redirect('genres');
     }
 
     /**
@@ -58,7 +68,10 @@ class GenreController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('cruds.genrecrud.edit', [
+            'genre' => Genre::find($id),
+        ]);
+        return redirect('genres');
     }
 
     /**
@@ -70,7 +83,13 @@ class GenreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $genre = Genre::find($id);
+        $genre->update([
+            $genre->name = $request->name,
+            $genre->save(),
+        ]);
+
+        return redirect('genres');
     }
 
     /**
@@ -81,6 +100,9 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $genre = Genre::find($id);
+        $genre->delete();
+
+        return redirect('genres');
     }
 }

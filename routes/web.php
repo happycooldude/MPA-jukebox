@@ -4,6 +4,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// routes voor de genres
 Route::get('genres', [GenreController::class, 'index'])->name('genres');
 
 Route::get('genre/{id}', [GenreController::class, 'show']);
@@ -35,7 +36,7 @@ Route::put('genre/edit/{id}/update', [GenreController::class, 'update']);
 
 Route::get('genre/delete/{id}', [GenreController::class, 'destroy']);
 
-
+//routes voor de songs
 Route::get('songs', [SongController::class, 'index'])->name('songs');
 
 Route::get('song/{id}', [SongController::class, 'show']);
@@ -50,7 +51,7 @@ Route::put('song/edit/{id}/update', [SongController::class, 'update']);
 
 Route::get('song/delete/{id}', [SongController::class, 'destroy']);
 
-
+//routes voor de artists
 Route::get('artists', [ArtistController::class, 'index'])->name('artists');
 
 Route::get('artist/{id}', [ArtistController::class, 'show']);
@@ -65,8 +66,16 @@ Route::put('artist/edit/{id}/update', [ArtistController::class, 'update']);
 
 Route::get('artist/delete/{id}', [ArtistController::class, 'destroy']);
 
+// routes voor de sessions
+Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('session.get');
+
+Route::get('/session/store', [SessionController::class, 'storeSessionData'])->name('session.store');
+
+Route::get('/session/delete', [SessionController::class, 'deleteSessionData'])->name('session.delete');
+
 
 Route::get('playlists', [PlaylistController::class, 'index'])->name('playlists');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

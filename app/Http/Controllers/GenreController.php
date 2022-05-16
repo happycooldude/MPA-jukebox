@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Song;
-use App\Models\Artist;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique()->word;
+            $table->string('time');
             $table->foreignId('artist_id');
             $table->foreignId('genre_id');
             $table->timestamps();

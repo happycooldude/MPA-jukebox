@@ -66,10 +66,10 @@ Route::put('artist/edit/{id}/update', [ArtistController::class, 'update']);
 
 Route::get('artist/delete/{id}', [ArtistController::class, 'destroy']);
 
-// routes voor de sessions
+// routes voor de sessions (van yt tutorial via controller)
 Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('session.get');
 
-Route::get('/session/store', [SessionController::class, 'storeSessionData'])->name('session.store');
+Route::get('/session/store/song/{id}', [SessionController::class, 'storeSessionData'])->name('session.store');
 
 Route::get('/session/delete', [SessionController::class, 'deleteSessionData'])->name('session.delete');
 

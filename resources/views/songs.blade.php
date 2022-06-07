@@ -14,6 +14,7 @@
                             <a href="/song/{{ $song->id }}">{{ $song->title }}</a>
                             <a href="/song/edit/{{ $song->id }}">Edit</a>
                             <a href="/song/delete/{{ $song->id }}">Delete</a>
+                            <a href="/session/store/song/{{$song->id}}">Add to playlist</a>
                         </div>
 
                         <br>

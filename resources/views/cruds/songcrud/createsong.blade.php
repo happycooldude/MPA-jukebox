@@ -14,6 +14,8 @@
                         @csrf
                         <label for="title">Title</label>
                         <input type="text" name='title'> <br>
+                        <label for="time">Time</label>
+                        <input type="time" name='time'> <br>
                         <label for="artist_id">Artist</label>
                         <select name="artist_id">
                             @foreach ($artists as $artist)

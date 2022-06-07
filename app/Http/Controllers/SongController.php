@@ -53,6 +53,7 @@ class SongController extends Controller
 
         $song = new Song();
         $song->title = $request->title;
+        $song->time = $request->time;
         $song->artist_id = $request->artist_id;
         $song->genre_id = $request->genre_id;
         $song->save();
@@ -88,6 +89,7 @@ class SongController extends Controller
         $song = Song::find($id);
         $song->update([
             $song->title = $request->title,
+            $song->time = $request->time,
             $song->artist_id = $request->artist_id,
             $song->genre_id = $request->genre_id,
             $song->save(),

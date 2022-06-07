@@ -18,8 +18,8 @@ class SessionController extends Controller
 
     public function storeSessionData(Request $request)
     {
-        $request->session()->put('title', 'Laravel');
-        echo "Session data stored";
+        $request->session()->put('title', 'song');
+        return redirect('playlists')->with('title', 'song');
     }
 
     public function deleteSessionData(Request $request)

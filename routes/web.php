@@ -4,7 +4,9 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\SelectionController;
 use App\Http\Controllers\SessionController;
+use App\Models\Playlist;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -66,16 +69,23 @@ Route::put('artist/edit/{id}/update', [ArtistController::class, 'update']);
 
 Route::get('artist/delete/{id}', [ArtistController::class, 'destroy']);
 
-// routes voor de sessions (van yt tutorial via controller)
+//routes voor de selection
+
+Route::get('selection', [SelectionController::class, 'index'])->name('selection');
+
+Route::get('selection/delete/{id}', [SelectionController::class, 'remove']);
+
+// routes voor de sessions
+
+//laat alle songs in de sessie zien
 Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('session.get');
 
-Route::get('/session/store/song/{id}', [SessionController::class, 'storeSessionData'])->name('session.store');
+// http://127.0.0.1:8000/addSong/1 : voeg een song toe aan de sessie
+Route::get('addSong/{song_id}', [SessionController::class, 'addSongIdToSession']);
 
-Route::get('/session/delete', [SessionController::class, 'deleteSessionData'])->name('session.delete');
-
+// Route::get('/session/delete', [SessionController::class, 'deleteSessionData'])->name('session.delete');
 
 Route::get('playlists', [PlaylistController::class, 'index'])->name('playlists');
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

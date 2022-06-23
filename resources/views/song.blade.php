@@ -16,6 +16,8 @@
                     Artist: {{$song->artist->name}}
                     <br>
                     Genre: {{$song->genre->name}}
+                    <br><br>
+                    <a href="/songs">Back</a>
                 </div>
             </div>
         </div>

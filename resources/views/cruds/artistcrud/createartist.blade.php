@@ -14,7 +14,8 @@
                         @csrf
                         <label for="name">Name</label>
                         <input type="text" name='name'> <br>
-                        <button type="submit">Submit</button>
+                        <button type="submit">Submit</button> <br>
+                        <a href="/artists">Back</a>
                     </form>
                 </div>
             </div>

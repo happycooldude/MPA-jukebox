@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __($genre->name) }}
+            Songs in the {{ __($genre->name) }} genre
         </h2>
     </x-slot>
 
@@ -15,6 +15,7 @@
                     Artist: {{$song->artist->name}}
                     <br><br>
                     @endforeach
+                    <a href="/genres">Back</a>
                 </div>
             </div>
         </div>

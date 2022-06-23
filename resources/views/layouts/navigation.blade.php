@@ -28,6 +28,10 @@
                         {{ __('Songs') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('selection')" :active="request()->routeIs('selection')">
+                        {{ __('selection') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('playlists')" :active="request()->routeIs('playlists')">
                         {{ __('Playlists') }}
                     </x-nav-link>

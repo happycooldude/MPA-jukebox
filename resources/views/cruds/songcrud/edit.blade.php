@@ -30,7 +30,8 @@
                                     {{ $genre->name }}</option>
                             @endforeach
                         </select><br>
-                        <button type="submit">Submit</button>
+                        <button type="submit">Submit</button> <br>
+                        <a href="/songs">Back</a>
                     </form>
                 </div>
             </div>
